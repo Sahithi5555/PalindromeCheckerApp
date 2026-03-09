@@ -195,6 +195,31 @@ public class PalindromeCheckerApp {
             System.out.println("UC8: String is not palindrome using Linked List");
         }
 
+        // ---------------- UC9 ----------------
+// Recursive Palindrome Checker
+
+        System.out.println("UC9: Recursive Palindrome Check");
+
+        boolean resultRecursion = isPalindromeRecursive(input, 0, input.length() - 1);
+
+        if (resultRecursion) {
+            System.out.println("UC9: String is palindrome using recursion");
+        } else {
+            System.out.println("UC9: String is not palindrome using recursion");
+        }
+
         scanner.close();
+    }
+    public static boolean isPalindromeRecursive(String str, int start, int end) {
+
+        if (start >= end) {
+            return true;
+        }
+
+        if (str.charAt(start) != str.charAt(end)) {
+            return false;
+        }
+
+        return isPalindromeRecursive(str, start + 1, end - 1);
     }
 }
