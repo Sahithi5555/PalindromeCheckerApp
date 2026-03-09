@@ -227,6 +227,19 @@ public class PalindromeCheckerApp {
             System.out.println("UC10: String is not palindrome ignoring spaces and case");
         }
 
+        // ---------------- UC11 ----------------
+// Object-Oriented Palindrome Service
+
+        System.out.println("UC11: Object-Oriented Palindrome Service");
+
+        PalindromeService service = new PalindromeService();
+
+        if (service.checkPalindrome(input)) {
+            System.out.println("UC11: String is palindrome using OOP service");
+        } else {
+            System.out.println("UC11: String is not palindrome using OOP service");
+        }
+
         scanner.close();
     }
     public static boolean isPalindromeRecursive(String str, int start, int end) {
@@ -240,5 +253,18 @@ public class PalindromeCheckerApp {
         }
 
         return isPalindromeRecursive(str, start + 1, end - 1);
+    }
+}
+class PalindromeService {
+
+    public boolean checkPalindrome(String str) {
+
+        String reversed = "";
+
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversed = reversed + str.charAt(i);
+        }
+
+        return str.equals(reversed);
     }
 }
