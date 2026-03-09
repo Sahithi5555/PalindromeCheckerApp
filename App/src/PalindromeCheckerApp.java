@@ -240,6 +240,19 @@ public class PalindromeCheckerApp {
             System.out.println("UC11: String is not palindrome using OOP service");
         }
 
+        // ---------------- UC12 ----------------
+// Strategy Pattern for Palindrome Algorithms
+
+        System.out.println("UC12: Strategy Pattern Palindrome Check");
+
+        PalindromeStrategy strategy = new StackStrategy();   // choose algorithm
+
+        if (strategy.check(input)) {
+            System.out.println("UC12: String is palindrome using Strategy Pattern");
+        } else {
+            System.out.println("UC12: String is not palindrome using Strategy Pattern");
+        }
+
         scanner.close();
     }
     public static boolean isPalindromeRecursive(String str, int start, int end) {
@@ -266,5 +279,47 @@ class PalindromeService {
         }
 
         return str.equals(reversed);
+    }
+}
+interface PalindromeStrategy {
+    boolean check(String str);
+}
+class StackStrategy implements PalindromeStrategy {
+
+    public boolean check(String str) {
+
+        Stack<Character> stack = new Stack<>();
+
+        for (int i = 0; i < str.length(); i++) {
+            stack.push(str.charAt(i));
+        }
+
+        String reversed = "";
+
+        while (!stack.isEmpty()) {
+            reversed = reversed + stack.pop();
+        }
+
+        return str.equals(reversed);
+    }
+}
+class DequeStrategy implements PalindromeStrategy {
+
+    public boolean check(String str) {
+
+        Deque<Character> deque = new LinkedList<>();
+
+        for (int i = 0; i < str.length(); i++) {
+            deque.addLast(str.charAt(i));
+        }
+
+        while (deque.size() > 1) {
+
+            if (deque.removeFirst() != deque.removeLast()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
