@@ -207,6 +207,25 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println("UC9: String is not palindrome using recursion");
         }
+        // ---------------- UC10 ----------------
+// Case-Insensitive & Space-Ignored Palindrome
+
+        System.out.println("UC10: Case-Insensitive & Space-Ignored Palindrome");
+
+// normalize string (remove spaces and convert to lowercase)
+        String normalized = input.replaceAll("\\s+", "").toLowerCase();
+
+        String reversedNormalized = "";
+
+        for (int i = normalized.length() - 1; i >= 0; i--) {
+            reversedNormalized = reversedNormalized + normalized.charAt(i);
+        }
+
+        if (normalized.equals(reversedNormalized)) {
+            System.out.println("UC10: String is palindrome ignoring spaces and case");
+        } else {
+            System.out.println("UC10: String is not palindrome ignoring spaces and case");
+        }
 
         scanner.close();
     }
