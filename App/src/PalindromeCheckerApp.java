@@ -132,6 +132,34 @@ public class PalindromeCheckerApp {
             System.out.println("UC6: String is not palindrome using Queue and Stack");
         }
 
+        // ---------------- UC7 ----------------
+// Deque-Based Optimized Palindrome Checker
+
+        System.out.println("UC7: Deque Based Palindrome Check");
+
+        Deque<Character> deque = new LinkedList<>();
+
+// insert characters into deque
+        for (int i = 0; i < input.length(); i++) {
+            deque.addLast(input.charAt(i));
+        }
+
+        boolean isPalindromeDeque = true;
+
+// compare front and rear
+        while (deque.size() > 1) {
+
+            if (deque.removeFirst() != deque.removeLast()) {
+                isPalindromeDeque = false;
+                break;
+            }
+        }
+
+        if (isPalindromeDeque) {
+            System.out.println("UC7: String is palindrome using Deque");
+        } else {
+            System.out.println("UC7: String is not palindrome using Deque");
+        }
         scanner.close();
     }
 }
