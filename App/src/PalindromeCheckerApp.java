@@ -101,6 +101,37 @@ public class PalindromeCheckerApp {
             System.out.println("UC5: String is not palindrome using stack");
         }
 
+        // ---------------- UC6 ----------------
+// Queue + Stack Based Palindrome Check
+
+        System.out.println("UC6: Queue + Stack Palindrome Check");
+
+        Queue<Character> queue = new LinkedList<>();
+        Stack<Character> stack2 = new Stack<>();
+
+// insert characters into queue and stack
+        for (int i = 0; i < input.length(); i++) {
+            queue.add(input.charAt(i));
+            stack2.push(input.charAt(i));
+        }
+
+        boolean isPalindromeQS = true;
+
+// compare dequeue vs pop
+        while (!queue.isEmpty()) {
+
+            if (queue.remove() != stack2.pop()) {
+                isPalindromeQS = false;
+                break;
+            }
+        }
+
+        if (isPalindromeQS) {
+            System.out.println("UC6: String is palindrome using Queue and Stack");
+        } else {
+            System.out.println("UC6: String is not palindrome using Queue and Stack");
+        }
+
         scanner.close();
     }
 }
