@@ -252,6 +252,29 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println("UC12: String is not palindrome using Strategy Pattern");
         }
+// ---------------- UC13 ----------------
+// Performance Comparison of Palindrome Algorithms
+
+        System.out.println("UC13: Performance Comparison");
+
+        long startTime = System.nanoTime();
+
+        boolean stackResult = new StackStrategy().check(input);
+
+        long endTime = System.nanoTime();
+
+        long stackTime = endTime - startTime;
+
+        startTime = System.nanoTime();
+
+        boolean dequeResult = new DequeStrategy().check(input);
+
+        endTime = System.nanoTime();
+
+        long dequeTime = endTime - startTime;
+
+        System.out.println("Stack Strategy Result: " + stackResult + " | Time: " + stackTime + " ns");
+        System.out.println("Deque Strategy Result: " + dequeResult + " | Time: " + dequeTime + " ns");
 
         scanner.close();
     }
