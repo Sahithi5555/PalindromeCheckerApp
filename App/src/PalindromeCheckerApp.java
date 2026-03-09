@@ -78,6 +78,29 @@ public class PalindromeCheckerApp {
             System.out.println("UC4: String is not palindrome using char array");
         }
 
+        // ---------------- UC5 ----------------
+// Stack-Based Palindrome Checker
+
+        System.out.println("UC5: Stack Based Palindrome Check");
+
+        Stack<Character> stack = new Stack<>();
+
+        for (int i = 0; i < input.length(); i++) {
+            stack.push(input.charAt(i));
+        }
+
+        String reversedStack = "";
+
+        while (!stack.isEmpty()) {
+            reversedStack = reversedStack + stack.pop();
+        }
+
+        if (input.equals(reversedStack)) {
+            System.out.println("UC5: String is palindrome using stack");
+        } else {
+            System.out.println("UC5: String is not palindrome using stack");
+        }
+
         scanner.close();
     }
 }
