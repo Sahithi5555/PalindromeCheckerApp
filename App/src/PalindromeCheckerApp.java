@@ -160,6 +160,41 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println("UC7: String is not palindrome using Deque");
         }
+
+        // ---------------- UC8 ----------------
+// Linked List Based Palindrome Checker
+
+        System.out.println("UC8: Linked List Palindrome Check");
+
+        LinkedList<Character> list = new LinkedList<>();
+
+// convert string to linked list
+        for (int i = 0; i < input.length(); i++) {
+            list.add(input.charAt(i));
+        }
+
+        int startLL = 0;
+        int endLL = list.size() - 1;
+        boolean isPalindromeLL = true;
+
+// compare start and end nodes
+        while (startLL < endLL) {
+
+            if (!list.get(startLL).equals(list.get(endLL))) {
+                isPalindromeLL = false;
+                break;
+            }
+
+            startLL++;
+            endLL--;
+        }
+
+        if (isPalindromeLL) {
+            System.out.println("UC8: String is palindrome using Linked List");
+        } else {
+            System.out.println("UC8: String is not palindrome using Linked List");
+        }
+
         scanner.close();
     }
 }
